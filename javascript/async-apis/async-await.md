@@ -166,13 +166,14 @@ To use this function, we just simply need to call it with `getCats()` in our cod
 
 This code will behave exactly like the code from the last lesson, it just looks a bit different after refactoring. `async/await` are very useful tools when it comes to cleaning up asynchronous javascript code. It is important to remember `async/await` are just promises written in a different way. Do the assignments below, and dive deeper into the understanding of `async/await`.
 
-
+### Assignment
 
 <div class="lesson-content__panel" markdown="1">
-1. Read [this article](https://javascript.info/async-await) for a solid introduction to async/await. [this article](https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65) also has some good examples of it's use.
+1. Read [this article](https://javascript.info/async-await) for a solid introduction to async/await. [this article](https://codeburst.io/javascript-es-2017-learn-async-await-by-example-48acc58bad65) also has some good examples of its use.
 2. Read [this article](https://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html) for a more in-depth look at async/await, including how to handle errors.
 3. Watch [this video](https://www.youtube.com/watch?v=9YkUCxvaLEk) for a good overview on async/await and it's purpose, along with a special trick.
 </div>
 
 ### Additional Resources
 1. [This video](https://www.youtube.com/watch?v=COKdtOgopWQ) is an example of how you can change callbacks, to promises, to async/await.
+2. [This video](https://www.youtube.com/watch?v=vn3tm0quoqE) gives a comprehensive view of Promises, async, and await.

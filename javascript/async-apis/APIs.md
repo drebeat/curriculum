@@ -34,9 +34,9 @@ Services like the OpenWeatherMap use API keys to track who is requesting the dat
 
 By signing up for a service and getting an API key you are letting the service track how much you are actually using. In many cases services are limited as to how much data they can request for free. With the weather app example, their free plan only allows you to make 60 requests per minute and also limits what types of data you can access ([details here if you're interested](https://openweathermap.org/price)). So, if your app became successful, you would probably need to pay for a better account.
 
-Luckily for us, the majority our apps are only going to be used by us and the people that view our portfolios. So we'll get by _just fine_ with free services.
+Luckily for us, the majority of our apps are only going to be used by us and the people that view our portfolios. So we'll get by _just fine_ with free services.
 
-Once you get a key (try this now if you like!) you can paste the URL into the browser again (including your key of course) and hopefully, you'll see a proper response:
+Once you get a key (try this now if you like!) and waited for its activation (see [Do I need to activate my API key?](https://openweathermap.org/faq)) you can paste the URL into the browser again (including your key of course) and hopefully, you'll see a proper response:
 
 ~~~JSON
 {"coord":{"lon":-77.73,"lat":38.77},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":75.74,"pressure":1017,"humidity":57,"temp_min":71.6,"temp_max":78.8},"visibility":16093,"wind":{"speed":3.87,"deg":291},"clouds":{"all":1},"dt":1504188900,"sys":{"type":1,"id":2886,"message":0.0053,"country":"US","sunrise":1504175992,"sunset":1504222878},"id":4775660,"name":"New Baltimore","cod":200}
@@ -71,7 +71,7 @@ request.send(null);
 
 Ouch. That was painful.
 
-Developers, feeling the pain of having to write that stuff out, began writing 3rd party libraries to take care of this and make it much easier to use. Some of the more popular libraries are [request](https://github.com/request/request), [axios](https://github.com/mzabriskie/axios), and [superagent](https://github.com/visionmedia/superagent), all of which have their strengths and weaknesses.
+Developers, feeling the pain of having to write that stuff out, began writing 3rd party libraries to take care of this and make it much easier to use. Some of the more popular libraries are [axios](https://github.com/mzabriskie/axios) and [superagent](https://github.com/visionmedia/superagent), both of which have their strengths and weaknesses.
 
 More recently, however, web browsers have begun to implement a new native function for making HTTP requests, and that's the one we're going to use and stick with for now. Meet fetch:
 
@@ -89,7 +89,7 @@ In case you've forgotten, scroll back up and look at how you would use XHR to do
 
 Let's change up our API for this example. We're going to walk through an example using fetch with the [giphy](https://giphy.com/) API to display a random gif on a webpage. The API requires you to sign up and get a free API key, so go ahead and [do that here](https://developers.giphy.com/docs/).
 
-Giphy has several methods for searching and finding gifs which you can read about in their documentation. Today we're just going to use the 'translate' endpoint because it's the simplest one for our purposes. You can find the appropriate URL in their documentation by scrolling down [here](https://developers.giphy.com/docs/). What it tells us is that the correct URL is `api.giphy.com/v1/gifs/translate` and that it requires 2 parameters, your `api_key` and a `s`earch term. If you put it all together correctly (with YOUR API key) you should get something like this:
+Giphy has several methods for searching and finding gifs which you can read about in their documentation. Today we're just going to use the 'translate' endpoint because it's the simplest one for our purposes. You can find the appropriate URL in their documentation by scrolling down [here](https://developers.giphy.com/docs/). What it tells us is that the correct URL is `api.giphy.com/v1/gifs/translate` and that it requires 2 parameters, your `api_key` and a `search term`. If you put it all together correctly (with YOUR API key) you should get something like this:
 
 ~~~javascript
 'https://api.giphy.com/v1/gifs/translate?api_key=YOUR_KEY_HERE&s=cats'
@@ -100,7 +100,7 @@ Go ahead and try that URL (with YOUR API key) in a browser. If everything goes w
 
 ### CORS
 
-A side note before we start putting this into our code. For security reasons, by default, browsers restrict HTTP requests to outside sources (which is exactly what we're trying to do here). There's a very small amount of setup that we need to do to make fetching work. Learning about this is outside our scope right now, but if you want to learn a bit about it this [wikipedia article](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is a decent starting point.
+A side note before we start putting this into our code. For security reasons, by default, browsers restrict HTTP requests to outside sources (which is exactly what we're trying to do here). There's a very small amount of setup that we need to do to make fetching work. Learning about this is outside our scope right now, but if you want to learn a bit about it this [Wikipedia article](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) and this [Javascript.info article](https://javascript.info/fetch-crossorigin) are good starting points. 
 
 Whether or not you took the detour to learn all about Cross Origin Resource Sharing (CORS) the fix is simple. With fetch, you are able to easily supply a JavaScript object for options. It comes right after the URL as a second parameter to the fetch function:
 
@@ -202,6 +202,8 @@ Running the file should now log the URL of the image. All that's left to do is s
 If all goes well, you should see a new image on the page every time you refresh!
 
 If you've gotten lost along the way, check out [this jsbin project](http://jsbin.com/canofar/edit?html,output). Besides the glorious styling, this is what your version should look like.
+
+While we are pushing this API key to the frontend, this isn't something you should do with any key that is not free, anything on the client is public knowledge. Handling keys that are unsafe to push to the frontend will be taught in later sections if you haven't been exposed in the Ruby course.
 
 ### Assignment
 

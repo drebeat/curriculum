@@ -105,10 +105,10 @@ Using `#any?`, this code can be greatly simplified:
 ~~~ruby
 numbers = [21, 42, 303, 499, 550, 811]
 
-numbers.any? { |number| item > 500 }
+numbers.any? { |number| number > 500 }
 #=> true
 
-numbers.any? { |number| item < 20 }
+numbers.any? { |number| number < 20 }
 #=> false
 ~~~
 
@@ -215,6 +215,7 @@ fruits.none? { |fruit| fruit.length > 6 }
 ### Assignment
 <div class="lesson-content__panel" markdown="1">
   1. Read [How to Use Ruby Any, All, None, and One](https://www.rubyguides.com/2018/10/any-all-none-one/) for alternative explanations for predicate enumerables.
+  2. Complete the [predicate enumerable](https://github.com/TheOdinProject/ruby-exercises/tree/master/ruby_basics) exercises from the [ruby-exercises repo](https://github.com/TheOdinProject/ruby-exercises) that you previously cloned.
 </div>
 
 ### Additional Resources

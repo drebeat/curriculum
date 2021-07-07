@@ -1,5 +1,5 @@
 ### Introduction
-In previous lessons, you learned about loops as well as arrays and hashes. You will soon discover that you'll have to do so much iterating (looping or repeating something several times) over collections as a developer that it will make you dizzy.
+In previous lessons, you learned about loops as well as arrays and hashes. You will soon discover that you'll have to do so much iterating (looping or repeating something several times) over collections as a developer that it will make you dizzy. Remember the **DRY (Don't Repeat Yourself)** approach to programming that we talked about in the lesson on Methods? Well, Ruby keeps iterating DRY through something called enumerables.
 
 **Enumerables** are a set of convenient built-in methods in Ruby that are included as part of both arrays and hashes. There are some iteration patterns that you'll find yourself doing again and again, such as transforming, searching for, and selecting subsets of elements in your collections. Enumerables were designed to make implementing these iteration patterns (and therefore your life as a developer) much, much easier.
 
@@ -241,7 +241,7 @@ friends.select { |friend| friend != 'Brian' }
  #=> ["Sharon", "Leo", "Leila", "Arun"]
 ~~~
 
-Now that we've cut out Brian, we can send out the invites! Let's say that the friends who you invited to your party have gotten back to you, and their responses are all recorded in a hash. Let's use `#select` to see who's coming. Recall that when you use an emumerable method with a hash, you need to set up block variables for both the key and the value:
+Now that we've cut out Brian, we can send out the invites! Let's say that the friends who you invited to your party have gotten back to you, and their responses are all recorded in a hash. Let's use `#select` to see who's coming. Recall that when you use an enumerable method with a hash, you need to set up block variables for both the key and the value:
 
 ~~~ruby
 responses = { 'Sharon' => 'yes', 'Leo' => 'no', 'Leila' => 'no', 'Arun' => 'yes' }
@@ -277,13 +277,11 @@ my_numbers.reduce { |sum, number| sum + number }
 
 Woah! What?! There's a lot happening here, so let's walk through what it's doing step by step.
 
-The first block variable in the `#reduce` enumerable (`sum` in this example) is known as the **accumulator**. The result of each iteration is stored in the accumulator and then passed to the next iteration. The accumulator is also the value that the `#reduce` method returns at the end of its work. By default, the initial value of the accumulator is zero, so for each step of the iteration, we would have the following:
+The first block variable in the `#reduce` enumerable (`sum` in this example) is known as the **accumulator**. The result of each iteration is stored in the accumulator and then passed to the next iteration. The accumulator is also the value that the `#reduce` method returns at the end of its work. By default, the initial value of the accumulator is the first element in the collection, so for each step of the iteration, we would have the following:
 
- 1. Iteration 0: sum = 0
- 2. Iteration 1: sum = 0 + 5 = 5
- 3. Iteration 2: sum = 5 + 6 = 11
- 4. Iteration 3: sum = 11 + 7 = 18
- 5. Iteration 4: sum = 18 + 8 = 26
+ 1. Iteration 0: sum = 5 + 6 = 11
+ 2. Iteration 1: sum = 11 + 7 = 18
+ 3. Iteration 2: sum = 18 + 8 = 26
 
 We can also set a different initial value for the accumulator by directly passing in a value to the `#reduce` method.
 
@@ -383,7 +381,7 @@ As you'll recall from the Methods lesson, **bang methods** can be easily identif
 It's best practice to avoid using these methods, however, as you or a future developer working on your code may need the original version. Remember that violent psychopath who you should expect will end up maintaining your code? Keep that in mind when making the decision to use bang methods.
 
 ### Return Values of Enumerables
-So if it's not a good idea to use bang methods but we need to re-use the result of a enumerable method throughout our program, what can we do instead?
+So if it's not a good idea to use bang methods but we need to re-use the result of an enumerable method throughout our program, what can we do instead?
 
 One option is to put the result of an enumerable method into a local variable:
 
@@ -421,6 +419,7 @@ invited_friends(friends)
   1. Read through the Ruby Explained article on [Map, Select, and Other Enumerable Methods](https://www.eriktrautman.com/posts/ruby-explained-map-select-and-other-enumerable-methods).
   2. Follow along with this [How to Use The Ruby Map Method](https://www.rubyguides.com/2018/10/ruby-map-method/) tutorial from Ruby Guides.
   3. Follow along with this [Reducing Enumerable](https://medium.com/@baweaver/reducing-enumerable-part-one-the-journey-begins-ddc1d4108490) article by Brandon Weaver.
+  4. Complete the [basic enumerable](https://github.com/TheOdinProject/ruby-exercises/tree/master/ruby_basics) exercises from the [ruby-exercises repo](https://github.com/TheOdinProject/ruby-exercises) that you previously cloned.
 </div>
 
 ### Additional Resources
@@ -428,7 +427,7 @@ This section contains helpful links to other content. It isn't required, so cons
 
 * The Bastards Book of Ruby has a good section on [Enumerables](http://ruby.bastardsbook.com/chapters/enumerables/).
 * This tutorial on [codementor](https://www.codementor.io/ruby-on-rails/tutorial/rubys-swiss-army-knife-the-enumerable-module) is another good discussion of the versatility of enumerable methods.
-* There are many more enumerable methods than are covered in this lesson (e.g., `#reject`, `#drop`, `#uniq`). For a full listing, you can check out the [Ruby Docs](https://ruby-doc.org/core-2.5.0/Enumerable.html).
+* There are many more enumerable methods than are covered in this lesson (e.g., `#reject`, `#drop`, `#uniq`). For a full listing, you can check out the [Ruby Docs](https://ruby-doc.org/core-2.7.1/Enumerable.html).
 
 ### Knowledge Check
 This section contains questions for you to check your understanding of this lesson. If you're having trouble answering the questions below on your own, review the material above to find the answer.

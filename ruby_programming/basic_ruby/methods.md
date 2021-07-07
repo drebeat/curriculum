@@ -214,7 +214,7 @@ def puts_squared(number)
 end
 ~~~
 
-This method only prints the value that it calculated to the console, but it doesn't return that value. If we then write `x = squared(20)`, the method will print `400` in the console, but the variable `x` will be assigned a value of `nil`. (If you need a refresher on this, go back and review the Ruby Input and Output lesson.)
+This method only prints the value that it calculated to the console, but it doesn't return that value. If we then write `x = puts_squared(20)`, the method will print `400` in the console, but the variable `x` will be assigned a value of `nil`. (If you need a refresher on this, go back and review the Ruby Input and Output lesson.)
 
 Now, let's write the same method but with an implicit return instead of `puts`. (Using an explicit return will act exactly the same in this example.)
 
@@ -299,6 +299,7 @@ Writing `whisper.downcase!` is the equivalent of writing `whisper = whisper.down
 1. For a good introduction to all the different concepts related to methods, read the [Methods chapter](https://launchschool.com/books/ruby/read/methods) from Launch School's *Introduction to Programming with Ruby*. Make sure to do the exercises at the end of the chapter too!
 2. To get a different take, read the part of the Objects section that discusses [Methods](http://ruby-for-beginners.rubymonstas.org/objects/methods.html) from Ruby Monsta's *Ruby for Beginners*.
 3. For more depth on how you can write your own methods, read the section on [Writing Methods](http://ruby-for-beginners.rubymonstas.org/writing_methods.html) from Ruby Monsta's *Ruby for Beginners*.
+4. Complete the [method](https://github.com/TheOdinProject/ruby-exercises/tree/master/ruby_basics) exercises from the [ruby-exercises repo](https://github.com/TheOdinProject/ruby-exercises) that you previously cloned.
 </div>
 
 ### Additional Resources
